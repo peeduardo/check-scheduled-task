@@ -8,23 +8,23 @@ Ele verifica se a tarefa existe, se foi executada recentemente e se o último re
 
 O script realiza:
 
-Verificação da existência da tarefa agendada
+- Verificação da existência da tarefa agendada
 
-Obtenção do estado atual (Ready, Running, etc.)
+- Obtenção do estado atual (Ready, Running, etc.)
 
-Coleta do último horário de execução
+- Coleta do último horário de execução
 
-Leitura do código de retorno (LastTaskResult)
+- Leitura do código de retorno (LastTaskResult)
 
-Conversão do código para mensagem amigável
+- Conversão do código para mensagem amigável
 
-Cálculo do tempo desde a última execução
+- Cálculo do tempo desde a última execução
 
-Saída padronizada para monitoramento
+- Saída padronizada para monitoramento
 
 Retornos:
 
-Código	Status
+Código	de Status:
 0	OK
 2	CRITICO
 📌 Como usar
