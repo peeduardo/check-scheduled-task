@@ -1,6 +1,6 @@
-🖥️ Check-ScheduledTask.ps1
+🖥️ check_scheduled_task.ps1
 
-Check-ScheduledTask.ps1 é um script PowerShell desenvolvido para monitorar tarefas agendadas do Windows (Scheduled Tasks) e retornar resultados compatíveis com ferramentas de monitoramento como OpMon, Nagios, Zabbix, Centreon e similares.
+Este arquivo é um script PowerShell desenvolvido para monitorar tarefas agendadas do Windows (Scheduled Tasks) e retornar resultados compatíveis com ferramentas de monitoramento como OpMon, Nagios, Zabbix, Centreon e similares.
 
 Ele verifica se a tarefa existe, se foi executada recentemente e se o último resultado indica sucesso ou falha.
 
@@ -31,7 +31,7 @@ Código	Status
 
 Execute no PowerShell:
 
-.\Check-ScheduledTask.ps1 -TaskName "NomeDaTask" -MaxMinutes 30
+.\check_scheduled_task.ps1 -TaskName "NomeDaTask" -MaxMinutes 30
 
 Parâmetros
 Parâmetro	Tipo	Descrição
