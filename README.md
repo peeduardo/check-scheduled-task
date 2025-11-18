@@ -1,59 +1,66 @@
-Script utilizado para monitorar uma tarefa agendada no Windows, verificando:
+🖥️ Check-ScheduledTask.ps1
 
-Existência da task
+Check-ScheduledTask.ps1 é um script PowerShell desenvolvido para monitorar tarefas agendadas do Windows (Scheduled Tasks) e retornar resultados compatíveis com ferramentas de monitoramento como OpMon, Nagios, Zabbix, Centreon e similares.
 
-Última execução
+Ele verifica se a tarefa existe, se foi executada recentemente e se o último resultado indica sucesso ou falha.
 
-Estado atual
+🚀 Funcionalidade
 
-Código de retorno (LastTaskResult)
+O script realiza:
 
-Tempo desde a última execução
+Verificação da existência da tarefa agendada
 
-Retorna mensagens no padrão OpMon/Nagios:
+Obtenção do estado atual (Ready, Running, etc.)
 
-Código	Significado
+Coleta do último horário de execução
+
+Leitura do código de retorno (LastTaskResult)
+
+Conversão do código para mensagem amigável
+
+Cálculo do tempo desde a última execução
+
+Saída padronizada para monitoramento
+
+Retornos:
+
+Código	Status
 0	OK
 2	CRITICO
+📌 Como usar
 
-Exemplo de uso:
+Execute no PowerShell:
 
-.\Check-ScheduledTask.ps1 -TaskName "BackupDiario" -MaxMinutes 60
+.\Check-ScheduledTask.ps1 -TaskName "NomeDaTask" -MaxMinutes 30
 
-
-Exemplo de saída:
-
+Parâmetros
+Parâmetro	Tipo	Descrição
+TaskName	string	Nome da tarefa agendada
+MaxMinutes	int	Tempo máximo aceitável desde a última execução
+🧾 Exemplos de saída
+✔ OK
 OK - A tarefa 'BackupDiario' foi executada pela ultima vez ha 12 minutos. Estado: Ready | Ultimo Resultado: 0 (Sucesso)
 
-📦 Instalação & Uso
-1. Clone o repositório
-git clone https://github.com/SeuUsuario/windows-monitoring-scripts.git
+❌ CRITICO
+CRITICO - A tarefa 'BackupDiario' foi executada pela ultima vez ha 187 minutos. Estado: Ready | Ultimo Resultado: 2 (Falha: arquivo nao encontrado)
 
-2. Acesse a pasta de scripts
-cd windows-monitoring-scripts/scripts
+🧠 Códigos interpretados
 
-3. Execute qualquer script
-.\NomeDoScript.ps1 -Parametros
+O script traduz automaticamente os códigos mais comuns do Agendador de Tarefas:
 
-🛠 Compatibilidade
+Código	Significado
+0	Sucesso
+1	Erro desconhecido
+2	Arquivo não encontrado
+10	Ambiente incorreto
+267	Diretório inválido
+2147942402	Acesso negado
+2147942667	Nome de diretório inválido
+Qualquer outro	Código desconhecido
+🛠 Requisitos
 
-Windows 10/11
+Windows 10/11 ou Windows Server
 
-Windows Server 2012 R2 ou superior
+PowerShell 5.1 ou superior
 
-PowerShell 5.1 ou PowerShell 7
-
-Permissão para executar scripts (Set-ExecutionPolicy)
-
-🤝 Contribuições
-
-Contribuições são bem-vindas!
-Você pode:
-
-Abrir issues
-
-Sugerir novos scripts
-
-Enviar pull requests
-
-Propor melhorias no código ou documentação
+Permissões para consultar tarefas agendadas
