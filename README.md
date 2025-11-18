@@ -25,8 +25,9 @@ O script realiza:
 Retornos:
 
 Código	de Status:
-0	OK
-2	CRITICO
+- 0	OK
+- 2	CRITICO
+
 📌 Como usar
 
 Execute no PowerShell:
